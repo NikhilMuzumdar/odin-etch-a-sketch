@@ -1,12 +1,11 @@
-* {
-    background-color: black;
-}
+
 
 .controls {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    gap: 50px;
 }
 
 button {
@@ -17,6 +16,7 @@ button {
     margin: 2px;
     font-size: 18px;
     font-weight: 800;
+    min-width: 100px;
 }
 
 button:hover {
@@ -36,4 +36,6 @@ button:hover {
     min-height: 400px;
     grid-template-columns: repeat(n, 1fr);
     grid-template-rows: repeat(n, 1fr);
+    background-color: wheat;
 }
+

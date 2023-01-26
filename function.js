@@ -1,11 +1,4 @@
-var gamemode = 'classic'
-
-// Toggle game mode classic to rgb
-function colorMode () {
-    const mode = document.querySelector('.game-mode')
-    console.log(mode)
-}
-
+gameMode = 'classic'
 
 // Color variables
 function updateGrid(n = 4) {
@@ -23,7 +16,7 @@ function addHoverstate() {
     const grids = document.querySelectorAll('.grid-item')
     grids.forEach((grid) => {
         grid.addEventListener('mouseover', () => {
-            grid.style.backgroundColor = 'grey';
+            grid.style.backgroundColor = color(gameMode);
         })
     })
 }
@@ -32,7 +25,7 @@ function addHoverstate() {
 function removeHoverstate() {
     const grids = document.querySelectorAll('.grid-item')
     grids.forEach((grid) => {
-        grid.style.backgroundColor = 'lightcyan';
+        grid.style.backgroundColor = 'wheat';
     })
 }
 
@@ -60,11 +53,26 @@ resize.addEventListener('click', () => {
     }
 })
 
-function refreshPage() {
-    window.location.reload();
+// color function
+function color (mode) {
+    if (mode === 'classic') {
+        return 'black'
+    }
+    const colorPallet = ['#EF476F', '#FFD126', '#06D6A0', '#118AB2', '#073B4C'];
+    return colorPallet[Math.floor(Math.random() * colorPallet.length)];
 }
 
-// main
+//Toggle Game mode
+const classicMode = document.querySelector('.classic-mode')
+classicMode.addEventListener('click', ()=>{
+    gameMode = 'classic'
+})
 
+const rgbMode = document.querySelector('.rgb-mode')
+rgbMode.addEventListener('click', ()=>{
+    gameMode = 'rgb'
+})
+
+// main
 updateGrid(10);
 addHoverstate();

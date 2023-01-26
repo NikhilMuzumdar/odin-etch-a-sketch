@@ -1,3 +1,12 @@
+var gamemode = 'classic'
+
+// Toggle game mode classic to rgb
+function colorMode () {
+    const mode = document.querySelector('.game-mode')
+    console.log(mode)
+}
+
+
 // Color variables
 function updateGrid(n = 4) {
     var grid = document.getElementById("grid");

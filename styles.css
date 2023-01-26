@@ -19,6 +19,10 @@ button {
     font-weight: 800;
 }
 
+button:hover {
+    background-color: lemonchiffon;
+}
+
 
 .main-box {
     display: flex;
@@ -32,10 +36,4 @@ button {
     min-height: 400px;
     grid-template-columns: repeat(n, 1fr);
     grid-template-rows: repeat(n, 1fr);
-}
-
-.grid-item {
-    width: calc(100vw / n);
-    height: calc(100vh / n);
-    background-color: lightcyan
 }

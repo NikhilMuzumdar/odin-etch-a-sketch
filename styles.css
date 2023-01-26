@@ -1,0 +1,41 @@
+* {
+    background-color: black;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: lightskyblue;
+    padding: 10px;
+    border-radius: 4px;
+    border: solid beige;
+    margin: 2px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+.main-box {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.grid {
+    display: grid;
+    min-width: 400px;
+    min-height: 400px;
+    grid-template-columns: repeat(n, 1fr);
+    grid-template-rows: repeat(n, 1fr);
+}
+
+.grid-item {
+    width: calc(100vw / n);
+    height: calc(100vh / n);
+    background-color: lightcyan
+}

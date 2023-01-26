@@ -1,13 +1,18 @@
 gameMode = 'classic'
+defaultGridColor = 'white'
 
 // Color variables
-function updateGrid(n = 4) {
+function updateGrid(n) {
     var grid = document.getElementById("grid");
     for (var i = 0; i < n * n; i++) {
         var gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
+        gridItem.style.backgroundColor = defaultGridColor;
         grid.appendChild(gridItem);
     }
+    gridSize = `Grid Size: ${n}x${n}`
+    gridText = document.querySelector('.controls p');
+    gridText.innerHTML = gridSize;
     grid.style.cssText = `grid-template-columns: repeat(${n}, 1fr); grid-template-rows: repeat(${n}, 1fr);`;
 }
 
@@ -25,7 +30,7 @@ function addHoverstate() {
 function removeHoverstate() {
     const grids = document.querySelectorAll('.grid-item')
     grids.forEach((grid) => {
-        grid.style.backgroundColor = 'wheat';
+        grid.style.backgroundColor = defaultGridColor;
     })
 }
 
@@ -58,11 +63,15 @@ function color (mode) {
     if (mode === 'classic') {
         return 'black'
     }
+    if (mode === 'eraser') {
+        console.log(defaultGridColor)
+        return defaultGridColor
+    }
     const colorPallet = ['#EF476F', '#FFD126', '#06D6A0', '#118AB2', '#073B4C'];
     return colorPallet[Math.floor(Math.random() * colorPallet.length)];
 }
 
-//Toggle Game mode
+//Toggle Game modes
 const classicMode = document.querySelector('.classic-mode')
 classicMode.addEventListener('click', ()=>{
     gameMode = 'classic'
@@ -73,6 +82,15 @@ rgbMode.addEventListener('click', ()=>{
     gameMode = 'rgb'
 })
 
+const eraseMode = document.querySelector('.erase-mode')
+eraseMode.addEventListener('click', ()=>{
+    gameMode = 'eraser'
+})
+
 // main
 updateGrid(10);
 addHoverstate();
+const grid = document.querySelector('.grid');
+grid.style.backgroundColor = defaultGridColor;
+
+
